@@ -1,0 +1,9 @@
+*.iml
+*.txt
+*.exec
+*DS_Store
+*.idea
+__pycache__
+.env
+env
+test_db.db
