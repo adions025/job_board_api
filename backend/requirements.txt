@@ -1,0 +1,18 @@
+fastapi
+uvicorn
+
+#for template
+jinja2
+
+#for static files
+aiofiles
+
+#for database   #new
+sqlalchemy
+psycopg2
+
+#for loading environment variables
+python-dotenv
+
+#for email validation
+pydantic[email]
