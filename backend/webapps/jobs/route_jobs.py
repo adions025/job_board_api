@@ -18,7 +18,7 @@ async def home(request: Request, db: Session = Depends(get_db), msg: str = None)
     )
 
 
-@router.get("/details/{id}")  # new
+@router.get("/jobs/details/{id}")
 def job_detail(id: int, request: Request, db: Session = Depends(get_db)):
     job = retreive_job(id=id, db=db)
     return templates.TemplateResponse(
