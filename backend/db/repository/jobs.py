@@ -1,5 +1,4 @@
 from sqlalchemy.orm import Session
-
 from schemas.jobs import JobCreate
 from db.models.jobs import Job
 
