@@ -5,6 +5,7 @@ from db.session import engine
 from db.base import Base
 from apis.base import api_router
 from webapps.base import api_router as web_app_router
+from db.utils import check_db_connected, check_db_disconnected
 
 
 def include_router(app):
@@ -30,3 +31,13 @@ def start_application():
 
 
 app = start_application()
+
+
+@app.on_event("startup")
+async def app_startup():
+    await check_db_connected()
+
+
+@app.on_event("shutdown")  # new
+async def app_shutdown():
+    await check_db_disconnected()

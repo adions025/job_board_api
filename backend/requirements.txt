@@ -32,3 +32,9 @@ pre-commit
 
 #for accessing form data
 python-multipart
+
+#Databases gives asyncio support for a range of databases.
+databases
+
+#for postgres async support
+asyncpg
