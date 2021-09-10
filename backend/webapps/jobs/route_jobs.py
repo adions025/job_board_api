@@ -12,6 +12,7 @@ from schemas.jobs import JobCreate
 from db.repository.jobs import create_new_job
 from fastapi import responses, status
 from fastapi.security.utils import get_authorization_scheme_param
+from typing import Optional
 
 templates = Jinja2Templates(directory="templates")
 router = APIRouter(include_in_schema=False)
@@ -21,7 +22,7 @@ router = APIRouter(include_in_schema=False)
 async def home(request: Request, db: Session = Depends(get_db), msg: str = None):
     jobs = list_jobs(db=db)
     return templates.TemplateResponse(
-        "general_pages/homepage.html", {"request": request, "jobs": jobs, "msg": msg}
+        "general_pages/homepage.html", {"request": request, "jobs": jobs, "msg": msg, "user": "a"}
     )
 
 

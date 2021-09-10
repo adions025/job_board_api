@@ -14,6 +14,9 @@ from schemas.tokens import Token
 from sqlalchemy.orm import Session
 from apis.utils import OAuth2PasswordBearerWithCookie
 from fastapi import Response
+from starlette.responses import RedirectResponse
+from typing import Optional
+from db.models.users import User
 
 router = APIRouter()
 
@@ -67,3 +70,10 @@ def get_current_user_from_token(token: str = Depends(oauth2_scheme), db: Session
     if user is None:
         raise credentials_exception
     return user
+
+
+@router.get("/logout")
+async def route_logout_and_remove_cookie():
+    response = RedirectResponse(url="/")
+    response.delete_cookie("access_token")
+    return response
