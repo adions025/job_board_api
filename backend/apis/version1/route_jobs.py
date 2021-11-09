@@ -27,7 +27,7 @@ def read_job(id: int, db: Session = Depends(get_db)):
     return job
 
 
-@router.get("/all", response_model=List[ShowJob])  # new
+@router.get("/all", response_model=List[ShowJob])
 def read_jobs(db: Session = Depends(get_db)):
     jobs = list_jobs(db=db)
     return jobs
