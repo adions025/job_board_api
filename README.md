@@ -12,7 +12,7 @@
 
 - Clone repo
 
-***Postgres***
+***PostgreSQL***
 
 - docker-compose up -d
 
